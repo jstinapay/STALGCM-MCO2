@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rules lang="tl">
+
+    <!-- rule 1 -->
+    <rule id="IKA_AT_NUMERO" name="Gitling sa unlaping 'ika-' at numero">
+        <pattern>
+            <token>ika</token>
+            <token regexp="yes">\d+</token>
+        </pattern>
+        <message>Ayon sa Ortograpiyang Pambansa, ginagamit ang gitling kapag inilalapi ang 'ika-' sa tambilang.</message>
+        <suggestion>ika-<match no="2"/></suggestion>
+        <example correction="ika-5">Siya ay ang <marker>ika 5</marker> na dumating.</example>
+        <example>Siya ay ang ika-5 na dumating.</example>
+    </rule>
+
+    <!-- rule 2 -->
+    <rule id="E_TO_I_HULAPI" name="Pagpapalit ng E tungo sa I kapag may hulapi">
+        <pattern>
+            <token regexp="yes">(?i)(kababae|kape|garahe|sige|diskarte)(han)</token>
+        </pattern>
+        <message>Ayon sa Ortograpiyang Pambansa (7.4), ang 'e' sa dulo ng salitang-ugat ay nagiging 'i' kapag hinuhulapian ng '-han'.</message>
+        <suggestion><match no="1" regexp_match="(?i)(.*)e(han)" regexp_replace="$1i$2"/></suggestion>
+        <example correction="kababaihan">Maraming <marker>kababaehan</marker> ang dumalo sa seminar.</example>
+        <example correction="kapihan">May masarap na <marker>kapehan</marker> sa Antipolo.</example>
+        <example>Maraming kababaihan ang dumalo sa seminar.</example>
+        <example>May masarap na kapihan sa Antipolo.</example>
+    </rule>
+
+    <!-- rule 3 -->
+
+</rules>
